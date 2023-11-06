@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+             x:Class="Kev_App_Stream.Views.SetUpScreenView"
+			 xmlns:vm="using:Kev_App_Stream.ViewModels"
+			 x:DataType="vm:SetUpScreenViewModel">
+
+	<Grid RowDefinitions="0.075* 1*" ColumnDefinitions="1* 1*">
+		<TextBlock Margin="10 0" VerticalAlignment="Center" Classes="Title" Grid.ColumnSpan="2" Text="Set up"/>
+		<Border Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="black" BorderThickness="0 0 0 1"/>
+		<StackPanel Margin="20 0 0 0" Grid.Row="1" Grid.Column="0" >
+			<TextBlock Classes="Para" Text="Players"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBox Text="{Binding NewPlayerName}" Margin="0 0 5 0" Watermark="Add new player here" Width="155"/>
+				<Button Command="{Binding AddPlayer}" Content="Add Player"/>
+			</StackPanel>
+			<Border Margin="0 20 0 0" CornerRadius="5" BorderBrush="#aaa" Width="350" HorizontalAlignment="Left" BorderThickness="1">
+				<ScrollViewer>
+					<ListBox CornerRadius="5" Height="300" ItemsSource="{Binding PlayerList}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<TextBlock Text="{Binding}"/>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</ScrollViewer>
+			</Border>
+		</StackPanel>
+		<Border Grid.Row="1" BorderBrush="black" BorderThickness="0 0 1 0"/>
+		<StackPanel Margin="20 0 0 0" Grid.Row="1" Grid.Column="1" >
+			<TextBlock Classes="Para" Text="Rules"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBox Text="{Binding NewRule}" Margin="0 0 5 0" Watermark="Add new rule here" Width="155"/>
+				<Button Command="{Binding AddRule}" CommandParameter="{Binding NewRule}" Content="Add Rule"/>
+			</StackPanel>
+
+			<Border Margin="0 20 0 0" CornerRadius="5" BorderBrush="#aaa" Width="350" HorizontalAlignment="Left" BorderThickness="1">
+				<ScrollViewer>
+					<ListBox CornerRadius="5" Height="300" ItemsSource="{Binding RuleList}">
+						<ListBox.ItemTemplate>
+							<DataTemplate>
+								<StackPanel>
+									<TextBlock Text="{Binding}"/>
+								</StackPanel>
+							</DataTemplate>
+						</ListBox.ItemTemplate>
+					</ListBox>
+				</ScrollViewer>
+			</Border>
+			<Button Margin="0 25 30 0" Width="80" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Content="Start"/>
+		</StackPanel>
+	</Grid>
+</UserControl>
