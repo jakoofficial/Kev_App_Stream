@@ -1,0 +1,50 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="500"
+             x:Class="Kev_App_Stream.Views.AppMainScreenView"
+			 xmlns:v="using:Kev_App_Stream.ViewModels"
+			 x:DataType="v:AppMainScreenViewModel">
+
+	<Grid ColumnDefinitions="1* 1* 1*">
+		<StackPanel Margin="10 0 0 0" HorizontalAlignment="Left" Grid.Column="0">
+			<Button Command="{Binding GoSetUp}" Margin="10 10 0 30" VerticalAlignment="Top" Grid.Column="0" Content="Back"/>
+			<TextBlock Text="Players"/>
+			<ListBox CornerRadius="5" BorderBrush="#aaa" BorderThickness="1" ItemsSource="{Binding PlayersList}" Margin="0 5 0 16" Width="200" Height="175">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+			<TextBlock Text="Rules"/>
+			<ListBox CornerRadius="5" BorderBrush="#aaa" BorderThickness="1" ItemsSource="{Binding RuleList}" Margin="0 5 0 0" Width="200" Height="175">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+			<TextBlock Text="{Binding PlayerName}" Margin="0 0 0 5" HorizontalAlignment="Center" FontSize="22"/>
+			<TextBlock Text="{Binding Rule}" Margin="0 0 0 30" HorizontalAlignment="Center" FontSize="18"/>
+			<Button Command="{Binding Roll}" Width="90" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Reroll"/>
+		</StackPanel>
+
+		<StackPanel Margin="0 0 10 10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2">
+			<StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+				<TextBlock VerticalAlignment="Center" Margin="0 0 10 5" Text="History"/>
+				<Button Command="{Binding ClearHistory}" Content="Clear"/>
+			</StackPanel>
+			<ListBox ItemsSource="{Binding History}" CornerRadius="5" BorderBrush="#aaa" BorderThickness="1" Margin="0 0 0 10" Width="200" Height="400">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<TextBlock Text="{Binding}"/>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</StackPanel>
+	</Grid>
+</UserControl>

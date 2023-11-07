@@ -7,7 +7,7 @@
         x:Class="Kev_App_Stream.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="Kev_App_Stream"
+        Title="Drunking"
 		xmlns:uc="using:Kev_App_Stream"
 		WindowStartupLocation="CenterScreen"
 		Background="#333">

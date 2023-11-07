@@ -9,16 +9,15 @@
 
 	<Grid RowDefinitions="0.075* 1*" ColumnDefinitions="1* 1*">
 		<TextBlock Margin="10 0" VerticalAlignment="Center" Classes="Title" Grid.ColumnSpan="2" Text="Set up"/>
-		<Border Grid.Row="0" Grid.ColumnSpan="2" BorderBrush="black" BorderThickness="0 0 0 1"/>
 		<StackPanel Margin="20 0 0 0" Grid.Row="1" Grid.Column="0" >
 			<TextBlock Classes="Para" Text="Players"/>
 			<StackPanel Orientation="Horizontal">
 				<TextBox Text="{Binding NewPlayerName}" Margin="0 0 5 0" Watermark="Add new player here" Width="155"/>
-				<Button Command="{Binding AddPlayer}" Content="Add Player"/>
+				<Button Command="{Binding AddPlayer}" Content="Add"/>
 			</StackPanel>
 			<Border Margin="0 20 0 0" CornerRadius="5" BorderBrush="#aaa" Width="350" HorizontalAlignment="Left" BorderThickness="1">
 				<ScrollViewer>
-					<ListBox CornerRadius="5" Height="300" ItemsSource="{Binding PlayerList}">
+					<ListBox SelectedValue="{Binding SelectedPlayer}" CornerRadius="5" Height="300" ItemsSource="{Binding PlayerList}">
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<StackPanel>
@@ -29,18 +28,25 @@
 					</ListBox>
 				</ScrollViewer>
 			</Border>
+			<StackPanel Margin="0 5 0 0" Orientation="Horizontal">
+				<Button Command="{Binding DropPlayers}" CommandParameter="False" Margin="0 0 10 0" Content="Drop Player"/>
+				<Button Command="{Binding DropPlayers}" CommandParameter="True" Content="Drop All"/>
+				<Button Command="{Binding SaveList}" CommandParameter="player" Margin="10 0 0 0" Content="Save"/>
+				<Button Command="{Binding LoadList}" CommandParameter="player" Margin="10 0 0 0" Content="Load"/>
+			</StackPanel>
 		</StackPanel>
-		<Border Grid.Row="1" BorderBrush="black" BorderThickness="0 0 1 0"/>
+		<Button Grid.Column="1" Command="{Binding Start}" Margin="0 10 10 0" Width="80" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Content="Start"/>
 		<StackPanel Margin="20 0 0 0" Grid.Row="1" Grid.Column="1" >
 			<TextBlock Classes="Para" Text="Rules"/>
 			<StackPanel Orientation="Horizontal">
 				<TextBox Text="{Binding NewRule}" Margin="0 0 5 0" Watermark="Add new rule here" Width="155"/>
-				<Button Command="{Binding AddRule}" CommandParameter="{Binding NewRule}" Content="Add Rule"/>
+				<NumericUpDown Width="105" Increment="1" Value="{Binding RuleAddAmount}" Minimum="1" Maximum="10" Watermark="" Margin="0 0 5 0"/>
+				<Button Command="{Binding AddRule}" CommandParameter="{Binding NewRule}" Content="Add"/>
 			</StackPanel>
 
 			<Border Margin="0 20 0 0" CornerRadius="5" BorderBrush="#aaa" Width="350" HorizontalAlignment="Left" BorderThickness="1">
 				<ScrollViewer>
-					<ListBox CornerRadius="5" Height="300" ItemsSource="{Binding RuleList}">
+					<ListBox SelectedValue="{Binding SelectedRule}" CornerRadius="5" Height="300" ItemsSource="{Binding RuleList}">
 						<ListBox.ItemTemplate>
 							<DataTemplate>
 								<StackPanel>
@@ -51,7 +57,12 @@
 					</ListBox>
 				</ScrollViewer>
 			</Border>
-			<Button Margin="0 25 30 0" Width="80" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Right" Content="Start"/>
+			<StackPanel Margin="0 5 0 0" Orientation="Horizontal">
+				<Button Command="{Binding DropRules}" CommandParameter="False" Margin="0 0 10 0" Content="Drop Rule"/>
+				<Button Command="{Binding DropRules}" CommandParameter="True" Content="Drop All"/>
+				<Button Command="{Binding SaveList}" CommandParameter="rule" Margin="10 0 10 0" Content="Save"/>
+				<Button Command="{Binding LoadList}" CommandParameter="rule" Margin="0 0 0 0" Content="Load"/>
+			</StackPanel>
 		</StackPanel>
 	</Grid>
 </UserControl>
