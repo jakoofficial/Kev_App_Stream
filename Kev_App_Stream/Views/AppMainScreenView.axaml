@@ -32,6 +32,7 @@
 			<TextBlock Text="{Binding Rule}" Margin="0 0 0 30" HorizontalAlignment="Center" FontSize="18"/>
 			<Button Command="{Binding Roll}" Width="90" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Content="Reroll"/>
 		</StackPanel>
+			<Button Command="{Binding ClearAll}" ToolTip.Tip="Resets Players picked amount and History" Margin="0 0 0 10" Width="90" Height="35" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="1" Content="Reset All"/>
 
 		<StackPanel Margin="0 0 10 10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="2">
 			<StackPanel Orientation="Horizontal" Margin="0 0 0 10">

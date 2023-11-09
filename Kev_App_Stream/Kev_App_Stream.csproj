@@ -6,7 +6,8 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-    <AssemblyName>Drunking_Beta1</AssemblyName>
+    <AssemblyName>Drunking_Beta1.1</AssemblyName>
+    <FileVersion>0.1.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

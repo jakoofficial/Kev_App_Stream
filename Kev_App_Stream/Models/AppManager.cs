@@ -20,6 +20,9 @@ namespace Kev_App_Stream.Models
         ObservableCollection<string> history = new ObservableCollection<string>();
         public ObservableCollection<string> History { get => history; set => this.RaiseAndSetIfChanged(ref history, value); }
 
+        ObservableCollection<string> playerPickedAmount = new ObservableCollection<string>();
+        public ObservableCollection<string> PlayerPickedAmount { get => playerPickedAmount; set => this.RaiseAndSetIfChanged(ref playerPickedAmount, value); }
+
         List<string> playerNameList = new List<string>()
         {
         };
